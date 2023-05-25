@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2 style="text-align: center; color: blue">Angular CRUD Application</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      
+    <!-- Emp Form-->
+    <div class="emp-form">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input placeholder="Firts Name" class="form-control" [(ngModel)]="currentEmployee.firstName"/>
+        </div>
+        <div class="col-md-6 form-group">
+          <input placeholder="Last Name" class="form-control" [(ngModel)]="currentEmployee.lastName">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <input placeholder="Employee Code" class="form-control" [(ngModel)]="currentEmployee.code">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input placeholder="Address" class="form-control" [(ngModel)]="currentEmployee.address">
+        </div>
+        <div class="col-md-6 form-group">
+          <input placeholder="Contact Number" class="form-control" [(ngModel)]="currentEmployee.contactNumber">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <button class="btn btn-success btn-lg btn-block" (click)="createEmployee(currentEmployee)">
+            <i class="fa fa-save"></i>
+            SAVE
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary btn-lg btn-block" (click)="clearEmployee(currentEmployee)">
+            <i class="fa fa-retweet"></i>
+            CLEAR
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-6">
+
+          <!-- Emp Details-->
+
+          <table class="table table-hover">
+            <tr *ngFor="let emp of empList">
+              <td>{{emp.firstName}}</td>
+              <td>{{emp.lastName}}</td>
+              <!-- <td>{{emp.code}}</td> -->
+              <td>
+                <a class="btn text-danger" (click)="deleteEmployee(emp.id)">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </td>
+              <td>
+                <a class="btn" (click)="editEmployee(emp)">
+                  <i class="fa fa-edit"></i>
+                </a>
+              </td>
+            </tr>
+          </table>
+    </div>
+  </div>
+</div>
+
+
